@@ -6,18 +6,15 @@ if (!isset($_SESSION['user']))
 
 $user = $_SESSION['user'];
 
-// Ambil data kategori dan status untuk filter
 $kategoriStmt = $pdo->query("SELECT * FROM categories");
 $kategoriList = $kategoriStmt->fetchAll();
 
 $statusStmt = $pdo->query("SELECT * FROM statuses");
 $statusList = $statusStmt->fetchAll();
 
-// Ambil filter dari URL jika ada
 $filterKategori = $_GET['kategori'] ?? '';
 $filterStatus = $_GET['status'] ?? '';
 
-// Query tugas dengan filter
 $query = "SELECT t.*, c.name as category, p.level, s.name as status, s.id as status_id 
           FROM tasks t
           JOIN categories c ON t.category_id = c.id
@@ -41,9 +38,9 @@ $stmt = $pdo->prepare($query);
 $stmt->execute($params);
 $tasks = $stmt->fetchAll();
 
-// Pisahkan tugas selesai dan belum selesai
 $belum = array_filter($tasks, fn($t) => $t['status_id'] != 3);
 $selesai = array_filter($tasks, fn($t) => $t['status_id'] == 3);
+include 'header.php'; 
 ?>
 
 
@@ -78,9 +75,8 @@ $selesai = array_filter($tasks, fn($t) => $t['status_id'] == 3);
             });
         }
     </script>
-
-
 </head>
+
 
 <body class="p-4">
     <div class="container">
@@ -88,7 +84,6 @@ $selesai = array_filter($tasks, fn($t) => $t['status_id'] == 3);
         <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalTambahTugas">+ Tambah
             Tugas</button>
 
-        <!-- Filter -->
         <form method="get" class="row mb-3">
             <div class="col-md-4">
                 <select name="kategori" class="form-select">
@@ -105,7 +100,6 @@ $selesai = array_filter($tasks, fn($t) => $t['status_id'] == 3);
             </div>
         </form>
 
-        <!-- Tugas Belum Selesai -->
         <h4>Task List</h4>
         <table class="table table-bordered">
             <thead>
@@ -169,7 +163,6 @@ $selesai = array_filter($tasks, fn($t) => $t['status_id'] == 3);
             </tbody>
         </table>
 
-        <!-- Tugas Selesai -->
         <h4 class="mt-4">Completed Task</h4>
         <table class="table table-bordered table-success">
             <thead>
@@ -211,7 +204,6 @@ $selesai = array_filter($tasks, fn($t) => $t['status_id'] == 3);
         </table>
     </div>
 
-    <!-- Modal Tambah Tugas -->
     <div class="modal fade" id="modalTambahTugas" tabindex="-1" aria-labelledby="modalTambahTugasLabel"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -221,7 +213,6 @@ $selesai = array_filter($tasks, fn($t) => $t['status_id'] == 3);
         </div>
     </div>
 
-    <!-- Modal Edit -->
     <div class="modal fade" id="modalEditTugas" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content p-3">
@@ -230,7 +221,6 @@ $selesai = array_filter($tasks, fn($t) => $t['status_id'] == 3);
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body" id="editFormContent">
-                    <!-- AJAX loaded content -->
                 </div>
             </div>
         </div>
@@ -239,3 +229,5 @@ $selesai = array_filter($tasks, fn($t) => $t['status_id'] == 3);
 </body>
 
 </html>
+
+<?php include 'footer.php'; ?>
