@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 22, 2025 at 01:26 AM
+-- Generation Time: Jun 22, 2025 at 09:56 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -107,7 +107,9 @@ INSERT INTO `tasks` (`id`, `user_id`, `category_id`, `priority_id`, `status_id`,
 (41, 1, 5, 3, 1, 'bermain roblox', 'bermain roblox bersama', '2025-06-13', '2025-06-12 10:07:33'),
 (45, 7, 1, 3, 3, 'TAM ', 'teori\r\n', '2025-06-20', '2025-06-17 16:54:59'),
 (47, 7, 1, 1, 1, 'teori', 'dsa', '2025-06-13', '2025-06-17 17:01:53'),
-(49, 13, 1, 1, 1, 'dsad', 'dsadas', '2025-06-11', '2025-06-21 06:06:41');
+(49, 13, 1, 1, 1, 'dsad', 'dsadas', '2025-06-11', '2025-06-21 06:06:41'),
+(52, 15, 3, 1, 1, 'wrg', 'wvgwre', '2025-06-19', '2025-06-22 07:06:04'),
+(53, 26, 1, 1, 3, 'Tugas Pemweb', 'Mantap j', '2025-06-26', '2025-06-22 09:46:20');
 
 -- --------------------------------------------------------
 
@@ -129,10 +131,13 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `username`, `password`, `role`) VALUES
 (1, 'Faadil', '$2y$10$CKEZlDfrWmqHGthVscC72OXGFkNT1nfe0RqEN.1uNQ9BNAH14QCRG', 'user'),
 (3, 'pajri', '$2y$10$x/rr8X0ooLcM0zt0d0bxKeUAJz9rpxdogMqYrBSHv7TF0ZDk354B2', 'user'),
-(7, '2317051024', '$2y$10$h3.bzLWrsjJx6UTGmddUMeRgmUylIwvIBH3u.iajg0urQlUA0405G', 'user'),
+(7, '23170510', '$2y$10$h3.bzLWrsjJx6UTGmddUMeRgmUylIwvIBH3u.iajg0urQlUA0405G', 'user'),
 (11, 'admin1', '$2y$10$koOJh8beS2nPxLCor2cbv.xtlweAiO5waldWkKiJN7EnMY8IW5e8W', 'admin'),
 (13, 'Syahdam', '$2y$10$la42dGoFpa.g1O/XRWzWruCOjZOigal1M5wVLFdzwOjEd0ApSHcUS', 'user'),
-(16, 'mendoan', '$2y$10$l.15LB/sfdei0pwIdtZaDuLMNz/iMUMrQBrkp6U.OOlo2bkLVXr9W', 'admin');
+(15, 'udin', '$2y$10$coY6Lea.ozRHiNoTJx4jTu62uCDk8M6s7Wj4Re846xghuxLcQWNam', 'admin'),
+(17, 'allisya', '$2y$10$xADimvVe7aR0bLilHGcisuZQMVkMlLDfFUJrUU9mFQYz3T/v1XMvq', 'user'),
+(26, 'user', '$2y$10$hxzKnGvFZsasl0tRc5EEeeV/zS6n9CSE7GfUEZsf1dQZfG0TJc1hu', 'user'),
+(27, 'padil', '$2y$10$hPmXgISogHEYVfxp6wnlN.uVpP6T0WKfI4DstxRzkQnZXNAd/HqZ.', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -181,31 +186,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `priorities`
 --
 ALTER TABLE `priorities`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `statuses`
 --
 ALTER TABLE `statuses`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Constraints for dumped tables
